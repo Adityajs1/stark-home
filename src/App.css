@@ -35,6 +35,7 @@ body {
     linear-gradient(180deg, #090909 0%, #040404 100%);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-size: 14px;
 }
 
 button,
@@ -72,54 +73,54 @@ input {
 
 .app-frame {
   position: relative;
-  width: min(1180px, calc(100% - 20px));
+  width: min(1120px, calc(100% - 16px));
   margin: 0 auto;
-  padding: 12px 0 18px;
+  padding: 8px 0 12px;
 }
 
 .hero {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .hero__header {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
-  gap: 10px;
+  gap: 8px;
 }
 
 .hero__title {
-  margin-top: 8px;
-  font-size: clamp(1.6rem, 2.8vw, 2.8rem);
+  margin-top: 6px;
+  font-size: clamp(1.32rem, 2.2vw, 2.15rem);
   line-height: 1;
   letter-spacing: -0.06em;
 }
 
 .hero__copy {
   max-width: 56ch;
-  margin-top: 8px;
-  font-size: 0.84rem;
-  line-height: 1.45;
+  margin-top: 6px;
+  font-size: 0.72rem;
+  line-height: 1.32;
 }
 
 .hero__stats {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .metric .ui-card__title {
-  font-size: 1.15rem;
+  font-size: 0.94rem;
 }
 
 .layout-stack {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .split-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
 .split-row--panel {
@@ -129,7 +130,7 @@ input {
 .action-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -138,22 +139,22 @@ input {
 }
 
 .section-title {
-  margin: 6px 0 0;
-  font-size: 1.18rem;
+  margin: 4px 0 0;
+  font-size: 1rem;
   letter-spacing: -0.04em;
 }
 
 .device-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   align-items: stretch;
 }
 
 .device-tile {
   position: relative;
   overflow: hidden;
-  min-height: 168px;
+  min-height: 140px;
   cursor: pointer;
   transition:
     border-color 160ms ease,
@@ -205,9 +206,9 @@ input {
 }
 
 .device-tile__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   display: grid;
@@ -218,8 +219,8 @@ input {
 .device-tile__icon svg,
 .device-tile__edit svg,
 .icon-choice svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -268,17 +269,47 @@ input {
 .device-tile__body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-height: 94px;
+  gap: 6px;
+  min-height: 76px;
 }
 
 .device-tile__footer {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   margin-top: auto;
   padding-top: 2px;
+}
+
+.automation {
+  min-height: 70px;
+}
+
+.automation .split-row {
+  align-items: center;
+}
+
+.automation .ui-card__header {
+  min-height: 70px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.automation .ui-card__title {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.automation .ui-card__description {
+  margin-top: 4px;
+  font-size: 0.68rem;
+  line-height: 1.25;
+}
+
+.automation .ui-button {
+  padding: 0.32rem 0.5rem;
+  font-size: 0.68rem;
 }
 
 .automation.is-active {
@@ -292,16 +323,16 @@ input {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .field {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .field span {
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -314,7 +345,7 @@ input {
 
 .connection-list {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .connection-item.is-selected {
@@ -322,35 +353,36 @@ input {
 }
 
 .log-card {
-  min-height: 46vh;
+  min-height: 36vh;
 }
 
 .log-feed {
   display: grid;
-  gap: 6px;
-  max-height: 46vh;
+  gap: 4px;
+  max-height: 36vh;
   overflow: auto;
 }
 
 .log-entry {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: flex-start;
-  padding: 0 0 8px;
+  padding: 0 0 5px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .log-entry__time {
   flex: 0 0 auto;
-  width: 76px;
+  width: 64px;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.64rem;
 }
 
 .log-entry__message {
   color: var(--muted);
   word-break: break-word;
+  font-size: 0.72rem;
 }
 
 .log-entry__message.is-pub {
@@ -372,12 +404,12 @@ input {
 .color-field {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .color-field code {
-  padding: 0.62rem 0.78rem;
-  border-radius: 12px;
+  padding: 0.48rem 0.62rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.03);
   font-family: var(--font-mono);
@@ -387,8 +419,8 @@ input {
 .icon-picker {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .icon-choice {
@@ -397,9 +429,9 @@ input {
   background: rgba(255, 255, 255, 0.03);
   color: var(--foreground);
   display: grid;
-  gap: 8px;
+  gap: 6px;
   place-items: center;
-  padding: 0.72rem;
+  padding: 0.52rem;
   transition: border-color 160ms ease, background 160ms ease;
   cursor: pointer;
 }
@@ -421,7 +453,7 @@ input {
 
 .ui-card__header,
 .ui-card__content {
-  padding: 12px;
+  padding: 9px;
 }
 
 .ui-card__header + .ui-card__content {
@@ -429,28 +461,29 @@ input {
 }
 
 .ui-card__title {
-  margin: 6px 0 0;
-  font-size: 1.05rem;
+  margin: 4px 0 0;
+  font-size: 0.9rem;
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .ui-card__description {
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
-  line-height: 1.4;
-  font-size: 0.84rem;
+  line-height: 1.3;
+  font-size: 0.72rem;
 }
 
 .ui-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 12px;
+  gap: 5px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 0.54rem 0.8rem;
-  font-size: 0.88rem;
+  padding: 0.32rem 0.5rem;
+  font-size: 0.68rem;
+  min-height: 24px;
   font-weight: 600;
   transition:
     background 160ms ease,
@@ -496,24 +529,24 @@ input {
 }
 
 .ui-button--sm {
-  padding: 0.44rem 0.64rem;
-  font-size: 0.8rem;
+  padding: 0.24rem 0.4rem;
+  font-size: 0.62rem;
 }
 
 .ui-button--icon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   padding: 0;
 }
 
 .ui-input {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--card-2);
   color: var(--foreground);
-  padding: 0.62rem 0.78rem;
-  font-size: 0.9rem;
+  padding: 0.42rem 0.56rem;
+  font-size: 0.74rem;
   outline: none;
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -527,8 +560,8 @@ input {
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  padding: 0.22rem 0.5rem;
-  font-size: 0.62rem;
+  padding: 0.14rem 0.36rem;
+  font-size: 0.52rem;
   font-family: var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -557,21 +590,21 @@ input {
 
 .ui-tabs__list {
   display: inline-flex;
-  gap: 6px;
-  padding: 4px;
+  gap: 4px;
+  padding: 3px;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .ui-tabs__trigger {
   border: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   background: transparent;
   color: var(--muted);
-  padding: 0.5rem 0.74rem;
-  font-size: 0.86rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.66rem;
   cursor: pointer;
   transition: background 160ms ease, color 160ms ease;
 }
@@ -600,31 +633,31 @@ input {
   width: min(760px, calc(100% - 32px));
   margin: 6vh auto 0;
   border: 1px solid var(--border);
-  border-radius: 26px;
+  border-radius: 20px;
   background: rgba(8, 8, 8, 0.94);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
-  padding: 16px;
+  padding: 12px;
 }
 
 .ui-dialog__header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .ui-dialog__title {
-  margin: 8px 0 0;
-  font-size: 1.2rem;
+  margin: 6px 0 0;
+  font-size: 1rem;
   letter-spacing: -0.03em;
 }
 
 .ui-dialog__description {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   color: var(--muted);
-  line-height: 1.45;
-  font-size: 0.88rem;
+  line-height: 1.3;
+  font-size: 0.74rem;
 }
 
 @media (max-width: 980px) {
