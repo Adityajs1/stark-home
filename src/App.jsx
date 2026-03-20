@@ -125,6 +125,16 @@ function DeviceIcon({ icon }) {
   return iconLibrary[icon]?.svg ?? iconLibrary.bulb.svg
 }
 
+function maskSecret(value) {
+  if (!value) return '••••••'
+  return '•'.repeat(Math.max(6, String(value).length))
+}
+
+function formatMaskedConnection(connection) {
+  if (!connection) return ''
+  return ''
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard')
   const [devices, setDevices] = useState(() => {
@@ -476,11 +486,9 @@ function App() {
                   <div>
                     <Badge variant="secondary">Current Broker</Badge>
                     <CardTitle>{activeConnection?.name ?? 'No connection selected'}</CardTitle>
-                    <CardDescription>
-                      {activeConnection
-                        ? `${activeConnection.deviceId} / ${activeConnection.broker}:${activeConnection.port}`
-                        : 'Go to Connections and select a broker profile.'}
-                    </CardDescription>
+                    {activeConnection ? null : (
+                      <CardDescription>Go to Connections and select a broker profile.</CardDescription>
+                    )}
                   </div>
 
                   <div className="action-row">
@@ -501,8 +509,7 @@ function App() {
 
               <div className="split-row split-row--panel">
                 <div>
-                  <Badge variant="outline">Home Controls</Badge>
-                  <h2 className="section-title">Appliance Tiles</h2>
+                  <h2 className="section-title">Home Controls</h2>
                 </div>
                 <div className="action-row">
                   <Button variant="secondary" onClick={refreshStates}>
@@ -673,9 +680,6 @@ function App() {
                             {selected ? 'Active' : 'Saved'}
                           </Badge>
                           <CardTitle>{connection.name}</CardTitle>
-                          <CardDescription>
-                            {connection.deviceId} / {connection.broker}:{connection.port}
-                          </CardDescription>
                         </div>
 
                         <div className="action-row">
@@ -732,8 +736,9 @@ function App() {
         </Tabs>
 
         <footer className="footer">
-          <span>Made by Arjun Purwar</span>
+          <span className="footer__credit">Made by Arjun Purwar</span>
           <a
+            className="footer__link"
             href="https://www.linkedin.com/in/arjun-purwar-9b035a2a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             target="_blank"
             rel="noreferrer"
