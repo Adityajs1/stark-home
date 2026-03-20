@@ -190,8 +190,15 @@ input {
   position: relative;
   overflow: hidden;
   min-height: 138px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--device-glow) 8%, rgba(255, 255, 255, 0.04)),
+      color-mix(in srgb, var(--device-glow) 4%, rgba(255, 255, 255, 0.01))
+    );
   cursor: pointer;
   transition:
+    background 160ms ease,
     border-color 160ms ease,
     transform 160ms ease,
     box-shadow 160ms ease;
@@ -224,8 +231,11 @@ input {
 
 .device-tile.is-active {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 245, 0.96)),
-    #ffffff;
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--device-glow) 36%, rgba(255, 255, 255, 0.98)),
+      color-mix(in srgb, var(--device-glow) 18%, rgba(244, 244, 245, 0.96))
+    );
   border-color: rgba(255, 255, 255, 0.85);
   color: #09090b;
   box-shadow:
