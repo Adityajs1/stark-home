@@ -435,27 +435,22 @@ function App() {
       <div className="app-frame">
         <Card className="hero">
           <CardHeader className="hero__header">
-            <div>
-              <Badge variant="outline">Reset UI / Shadcn Style</Badge>
-              <CardTitle className="hero__title">A.R.J.U.N.V.I.S Website Control Panel</CardTitle>
-              <CardDescription className="hero__copy">
-                Fresh component system, same website behavior. Dashboard, broker
-                connections, live logs, and device editing are now organized around
-                reusable primitives.
+            <div className="hero__brand">
+              <CardTitle className="hero__title">syncHome</CardTitle>
+              <CardDescription className="hero__tagline">
+                Let us make your home smart like never before
               </CardDescription>
             </div>
 
             <div className="hero__stats">
               <Card className="metric">
-                <CardHeader>
-                  <CardDescription>Connection</CardDescription>
-                  <CardTitle>{connectionLabel}</CardTitle>
+                <CardHeader className="metric__header">
+                  {connectionState === 'connected' ? (
+                    <span className="status-dot" aria-hidden="true" />
+                  ) : null}
+                  <CardDescription className="metric__label">Status</CardDescription>
+                  <CardTitle className="metric__value">{connectionLabel}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <Badge variant={connectionState === 'connected' ? 'success' : 'secondary'}>
-                    {activeConnection ? activeConnection.name : 'No connection'}
-                  </Badge>
-                </CardContent>
               </Card>
             </div>
           </CardHeader>
@@ -576,9 +571,6 @@ function App() {
                   <div>
                     <Badge variant="outline">Automation</Badge>
                     <CardTitle>PIR Motion Sensor</CardTitle>
-                    <CardDescription>
-                      Topic: {activeConnection ? `home/${activeConnection.deviceId}/pir` : 'home/<deviceId>/pir'}
-                    </CardDescription>
                   </div>
                   <Button
                     variant={pirState ? 'default' : 'secondary'}
@@ -738,6 +730,23 @@ function App() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        <footer className="footer">
+          <span>Made by Arjun Purwar</span>
+          <a
+            href="https://www.linkedin.com/in/arjun-purwar-9b035a2a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Arjun Purwar LinkedIn Profile"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.94 8.5V19" />
+              <path d="M6.94 5.75a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5Z" />
+              <path d="M11.5 19v-5.25a2.75 2.75 0 0 1 5.5 0V19" />
+              <path d="M11.5 11.25V19" />
+            </svg>
+          </a>
+        </footer>
       </div>
 
       <Dialog open={Boolean(editingDevice)}>
