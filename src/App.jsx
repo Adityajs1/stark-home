@@ -135,6 +135,15 @@ function formatMaskedConnection(connection) {
   return ''
 }
 
+function maskVisibleLabel(value) {
+  if (!value) return 'Hidden profile'
+
+  const text = String(value).trim()
+  if (text.length <= 8) return `${text.slice(0, 2)}****`
+
+  return `${text.slice(0, 4)}****${text.slice(-4)}`
+}
+
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard')
   const [devices, setDevices] = useState(() => {
@@ -485,7 +494,9 @@ function App() {
                 <CardHeader className="split-row">
                   <div>
                     <Badge variant="secondary">Current Broker</Badge>
-                    <CardTitle>{activeConnection?.name ?? 'No connection selected'}</CardTitle>
+                    <CardTitle>
+                      {activeConnection ? maskVisibleLabel(activeConnection.name) : 'No connection selected'}
+                    </CardTitle>
                     {activeConnection ? null : (
                       <CardDescription>Go to Connections and select a broker profile.</CardDescription>
                     )}
@@ -679,7 +690,7 @@ function App() {
                           <Badge variant={selected ? 'success' : 'outline'}>
                             {selected ? 'Active' : 'Saved'}
                           </Badge>
-                          <CardTitle>{connection.name}</CardTitle>
+                          <CardTitle>{maskVisibleLabel(connection.name)}</CardTitle>
                         </div>
 
                         <div className="action-row">
